@@ -1,7 +1,7 @@
 import React from "react";
 
 const Navegacion = () => {
-  return <div>Navegacion</div>;
+  return <div></div>;
 };
 
 export default Navegacion;
