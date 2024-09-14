@@ -1,8 +1,9 @@
 import React from "react";
+import "./styles.css";
 const CrearUsuarios = () => {
   return (
     <form className="row g-3">
-      <div className="col-md-4">
+      <div className="col-md-4 position relative">
         <label className="form-label">Nombre</label>
         <input
           type="text"
@@ -11,7 +12,7 @@ const CrearUsuarios = () => {
           required
         />
       </div>
-      <div className="col-md-4">
+      <div className="col-md-4 position relative">
         <label className="form-label">Apellido</label>
         <input
           type="text"
@@ -20,7 +21,7 @@ const CrearUsuarios = () => {
           required
         />
       </div>
-      <div className="col-md-4">
+      <div className="col-md-4 position relative">
         <label className="form-label">Edad</label>
         <input
           type="number"
@@ -29,7 +30,7 @@ const CrearUsuarios = () => {
           required
         />
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 position relative">
         <label class="form-label">Telefono</label>
         <div class="input-group">
           <span class="input-group-text" id="inputGroupPrepend3">
@@ -37,21 +38,43 @@ const CrearUsuarios = () => {
           </span>
           <input
             type="number"
-            class="form-control"
+            className="form-control no-spinner"
             placeholder="Telefono"
             required
           />
         </div>
       </div>
 
-      <div className="col-md-4 flex-grow-1">
+      <div className="col-md-4 position relative flex-grow-1">
         <label className="form-label">Correo</label>
         <input
-          type="text"
+          type="email"
           className="form-control"
           placeholder="Correo"
           required
         />
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="invalidCheck"
+            required
+          />
+          <label class="form-check-label" for="invalidCheck">
+            Aceptar terminos y condiciones
+          </label>
+          <div class="invalid-feedback">
+            Debes aceptar los terminos y condiciones
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">
+          Submit form
+        </button>
       </div>
     </form>
     /*<div className="col-md-6 offset-md-3">
