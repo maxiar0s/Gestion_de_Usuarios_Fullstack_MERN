@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const Navegacion = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-        <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
-            Usuarios
+      <nav className="navbar navbar-expand-lg bg-primary navbar-primary">
+        <div className="container">
+          <Link className="navbar-brand text-light" to="/">
+            <strong>Usuarios</strong>
           </Link>
           <button
             className="navbar-toggler"
@@ -23,12 +23,12 @@ const Navegacion = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link text-light" to="/">
                   Lista Usuarios
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/CrearUsuarios">
+                <Link className="nav-link text-light" to="/CrearUsuarios">
                   Crear Usuarios
                 </Link>
               </li>
