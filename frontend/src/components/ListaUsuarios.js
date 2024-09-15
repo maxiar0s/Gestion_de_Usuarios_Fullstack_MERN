@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles.css";
+import { Link } from "react-router-dom";
 
 const ListaUsuarios = () => {
   const [lista, setLista] = useState([]);
@@ -31,11 +32,14 @@ const ListaUsuarios = () => {
             </div>
             <div className="card-footer">
               <button
-                className="btn btn-primary"
+                className="btn btn-danger"
                 onClick={() => deleteUsuario(list._id)}
               >
                 Eliminar
               </button>
+              <Link className="btn btn-primary m-1" to={"/edit/" + list._id}>
+                Editar
+              </Link>
             </div>
           </div>
         </div>

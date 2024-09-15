@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./styles.css";
 import { useState } from "react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const CrearUsuarios = () => {
   const valorInicial = {
@@ -11,7 +12,11 @@ const CrearUsuarios = () => {
     telefono: "",
     correo: "",
   };
+
+  let { id } = useParams();
+
   const [usuario, setUsuario] = useState(valorInicial);
+  const [subId, setSubId] = useState(id ?? "");
   const getDatos = (e) => {
     const { name, value } = e.target;
     setUsuario({ ...usuario, [name]: value });
@@ -34,6 +39,40 @@ const CrearUsuarios = () => {
 
     setUsuario({ ...valorInicial });
   };
+
+  //funcion para actualizar usuario
+  const updateUsuario = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      edad: usuario.edad,
+      telefono: usuario.telefono,
+      correo: usuario.correo,
+    };
+    await axios.put("http://localhost:4000/api/usuarios/" + subId, newUser);
+    setUsuario({ ...valorInicial });
+    setSubId("");
+  };
+
+  //logica para hacer peticion a la api
+  const obtUno = async (valorId) => {
+    const res = await axios.get(
+      "http://localhost:4000/api/usuarios/" + valorId
+    );
+    setUsuario({
+      nombre: res.data.nombre,
+      apellido: res.data.apellido,
+      telefono: res.data.telefono,
+      edad: res.data.edad,
+      correo: res.data.correo,
+    });
+  };
+  useEffect(() => {
+    if (subId !== "") {
+      obtUno(subId);
+    }
+  }, [subId]);
 
   return (
     <div className="col-md-6 offset-md-3">
@@ -127,6 +166,13 @@ const CrearUsuarios = () => {
           <div className="d-grid gap-2 col-6 mx-auto">
             <button className="btn btn-primary" type="submit">
               Continuar
+            </button>
+          </div>
+        </form>
+        <form onSubmit={updateUsuario}>
+          <div className="d-grid gap-2 col-6 mx-auto">
+            <button className="btn btn-danger form-control mt-2">
+              Actualizar usuario
             </button>
           </div>
         </form>
