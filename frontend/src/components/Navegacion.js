@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navegacion = () => {
@@ -7,7 +7,7 @@ const Navegacion = () => {
       <nav className="navbar navbar-expand-lg bg-primary navbar-primary">
         <div className="container">
           <Link className="navbar-brand text-light" to="/">
-            <strong>Usuarios</strong>
+            <strong>Gestion de Usuarios</strong>
           </Link>
           <button
             className="navbar-toggler"
