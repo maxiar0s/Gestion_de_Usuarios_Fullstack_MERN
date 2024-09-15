@@ -3,3 +3,9 @@
   -webkit-appearance: none;
   margin: 0;
 }
+.let p {
+  text-transform: lowercase;
+}
+.let p:first-letter {
+  text-transform: uppercase;
+}
