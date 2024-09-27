@@ -7,7 +7,9 @@ const ListaUsuarios = () => {
   const [lista, setLista] = useState([]);
   useEffect(() => {
     const getUsuarios = async () => {
-      const res = await axios.get("/api/usuarios");
+      const res = await axios.get(
+        "https://users-seven-delta.vercel.app/api/usuarios"
+      );
       setLista(res.data);
     };
     getUsuarios();
