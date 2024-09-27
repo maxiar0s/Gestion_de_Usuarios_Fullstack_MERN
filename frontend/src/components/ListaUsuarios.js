@@ -11,9 +11,11 @@ const ListaUsuarios = () => {
       setLista(res.data);
     };
     getUsuarios();
-  }, [lista]);
+  }, []);
   const deleteUsuario = async (id) => {
     await axios.delete("/api/usuarios/" + id);
+    const updatedLista = lista.filter((usuario) => usuario._id !== id);
+    setLista(updatedLista);
   };
 
   return (
