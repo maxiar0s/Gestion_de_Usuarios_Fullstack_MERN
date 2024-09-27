@@ -35,7 +35,7 @@ const CrearUsuarios = () => {
       telefono: usuario.telefono,
       correo: usuario.correo,
     };
-    await axios.post("http://localhost:4000/api/usuarios", newUsuario);
+    await axios.post("/api/usuarios", newUsuario);
 
     setUsuario({ ...valorInicial });
   };
@@ -50,16 +50,14 @@ const CrearUsuarios = () => {
       telefono: usuario.telefono,
       correo: usuario.correo,
     };
-    await axios.put("http://localhost:4000/api/usuarios/" + subId, newUser);
+    await axios.put("/api/usuarios/" + subId, newUser);
     setUsuario({ ...valorInicial });
     setSubId("");
   };
 
   //logica para hacer peticion a la api
   const obtUno = async (valorId) => {
-    const res = await axios.get(
-      "http://localhost:4000/api/usuarios/" + valorId
-    );
+    const res = await axios.get("/api/usuarios/" + valorId);
     setUsuario({
       nombre: res.data.nombre,
       apellido: res.data.apellido,

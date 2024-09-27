@@ -7,13 +7,13 @@ const ListaUsuarios = () => {
   const [lista, setLista] = useState([]);
   useEffect(() => {
     const getUsuarios = async () => {
-      const res = await axios.get("http://localhost:4000/api/usuarios");
+      const res = await axios.get("/api/usuarios");
       setLista(res.data);
     };
     getUsuarios();
   }, [lista]);
   const deleteUsuario = async (id) => {
-    await axios.delete("http://localhost:4000/api/usuarios/" + id);
+    await axios.delete("/api/usuarios/" + id);
   };
 
   return (
